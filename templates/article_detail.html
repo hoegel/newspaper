@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Статья {{ article.pk }}{% endblock %}
+
+{% block content %}
+<div class="article-entry">
+    <h2>{{ object.title }}</h2>
+    <p>автор: {{ object.author }} | создано: {{ object.date }}</p>
+    <p>{{ object.body }}</p>
+</div>
+<p><a href="{% url 'article_edit' article.pk %}">Изменить</a>  | <a href="{% url 'article_delete' article.pk %}">Удалить</a></p>
+<p>Посмотреть <a href="{% url 'article_list' %}">Все статьи</a></p>
+{% endblock %}
